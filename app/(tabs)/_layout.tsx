@@ -1,5 +1,4 @@
-import { useAuth } from "@/hooks/useAuth";
-import { Redirect, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
@@ -11,15 +10,6 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const insets = useSafeAreaInsets();
-  const { loading, isAuthenticated } = useAuth();
-
-  if (loading) {
-    return <></>;
-  }
-
-  if (!isAuthenticated) {
-    return <Redirect href="/(auth)/login" />;
-  }
 
   return (
     <Tabs
